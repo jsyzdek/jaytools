@@ -11,7 +11,10 @@ alias pls="sudo"
 alias please="sudo"
 alias terminus=/mnt/c/Users/jaysy/vendor/bin/terminus
 alias explorer="explorer.exe ."
+
 alias gitr='git reset --hard && git ls-files --others --exclude-standard | xargs rm'
+alias git-clean-branches='git branch | grep -ve "master$" | xargs git branch -D'
+
 
 # development dir aliases
 alias cda='cd /mnt/c/Users/jaysy/AndroidStudioProjects/app-mobile-android'
@@ -21,6 +24,14 @@ function gitl () {
   NUMBER="${1-15}"  
   git log -n $NUMBER --pretty=format:"%C(yellow)%h %C(auto,magenta)%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s"
 }
+
+function fix-perms () {
+  DIR="${1:-storage}"
+  sudo find "$DIR" -type d -exec chmod 755 {} \;
+  sudo find "$DIR" -type f -exec chmod 644 {} \;
+}
+
+
 
 unset MAILCHECK
 export HISTTIMEFORMAT="%F %T %t "
