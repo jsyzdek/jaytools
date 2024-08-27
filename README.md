@@ -4,4 +4,6 @@ To install, run
 
 `curl -O https://raw.githubusercontent.com/jsyzdek/jaytools/master/jaytools.sh`
 
+Then, in your `.bashrc` file, add:
 
+`source jaytools.sh`
